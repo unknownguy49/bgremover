@@ -2,3 +2,4 @@ flask
 gunicorn
 uvicorn
 rembg
+onnxruntime
