@@ -1,4 +1,4 @@
 Flask==2.3.2
-rembg==2.0.29
+rembg==2.0.65  # Use the latest compatible version of rembg
 Pillow==9.4.0
 gunicorn==20.1.0
