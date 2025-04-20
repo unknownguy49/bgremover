@@ -1,6 +1,4 @@
 import os
-port = os.environ.get("PORT", 8000)
-
 from fastapi import FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from rembg import remove
@@ -22,3 +20,8 @@ async def remove_bg(file: UploadFile = File(...)):
     contents = await file.read()
     result = remove(contents)
     return StreamingResponse(BytesIO(result), media_type="image/png")
+
+if __name__ == "__main__":
+    import uvicorn
+    port = int(os.environ.get("PORT", 8000))  # Fallback to 8000 for local testing
+    uvicorn.run(app, host="0.0.0.0", port=port)
